@@ -35,6 +35,7 @@ There's instructions on how to start the service in the `🚀 Start services` se
 
 -   Docker with docker-compose installed
 -   node installed (Dockerfile runs node 18)
+-   Install all node modules with `npm i`
 
 ## 💾 Run database
 
