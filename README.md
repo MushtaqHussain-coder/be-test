@@ -37,6 +37,9 @@ There's instructions on how to start the service in the `🚀 Start services` se
 -   node installed (Dockerfile runs node 18)
 -   Install all node modules with `npm i`
 
+## Copy .env_example file
+Copy env file using `cp .env_example .env`. `.env` is gitignored.
+
 ## 💾 Run database
 
 Start the Postgres database by starting the single docker service.
@@ -57,7 +60,7 @@ Replace `<MY_MIGRARTION_NAME>` with something fitting. Initial migrations can be
 
 ## 🏃‍♀️ Run backend
 
-To get the backend up and running, simply start the node server:
+To get the backend up and running simply start the node server:
 
 ```
 node index.js

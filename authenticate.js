@@ -10,7 +10,7 @@ function authenticate(req, res, next) {
     }
     const token = authHeader.split(' ')[1];
     try {
-        const decodedToken = jwt.verify(token, 'secret-key');
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decodedToken.userId;
         prisma.user
             .findUnique({

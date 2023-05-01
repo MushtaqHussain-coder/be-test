@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const prisma = new PrismaClient();
 
+console.log('jwt secret', process.env.JWT_SECRET);
 // Creates user with name & email
 app.post('/users', async (req, res) => {
     const { name, email } = req.body;
@@ -34,7 +35,7 @@ app.post('/users/login/:id', async (req, res) => {
         if (!user) {
             res.status(404).json({ message: 'User not found.' });
         } else {
-            const token = jwt.sign({ userId: user.id }, 'secret-key');
+            const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
             await prisma.user.update({
                 where: { id: parseInt(id) },
                 data: { jwt: token },
@@ -85,7 +86,7 @@ app.post('/users/invalidateToken/:id', authenticate, async (req, res) => {
     }
 
     try {
-        const result = await prisma.user.update({
+        await prisma.user.update({
             where: { id: req.userId },
             data: { jwt: null }
         });
