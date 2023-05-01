@@ -9,7 +9,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const prisma = new PrismaClient();
 
-console.log('jwt secret', process.env.JWT_SECRET);
 // Creates user with name & email
 app.post('/users', async (req, res) => {
     const { name, email } = req.body;
