@@ -21,7 +21,7 @@ describe('Users - Invalidate user token', () => {
 
         token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
 
-        const a = await prisma.user.update({
+        await prisma.user.update({
             where: {
               id: user.id,
             },
@@ -34,7 +34,7 @@ describe('Users - Invalidate user token', () => {
     })
 
     afterAll(async () => {
-        const deleteUser = await prisma.user.delete({
+        await prisma.user.delete({
             where: {
               email: 'my.test.email@test.com',
             },
