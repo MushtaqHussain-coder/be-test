@@ -75,7 +75,7 @@ docker-compose down && docker-compose up --build -d
 ```
 
 
-## 🧾 Tasks
+## 🧾 Key Technologies
 
 -   Describe the roles of `docker`, `postgres`, `prisma` and `express` for the project.
 
@@ -85,4 +85,4 @@ docker-compose down && docker-compose up --build -d
 
 `Prisma`:Prisma is an open-source ORM (Object-Relational Mapping) library that simplifies database management by providing a high-level API for querying and updating the database. In this project, Prisma is used to define the schema, handle migrations, and perform operations on the User and Company models.
 
-`Express`: xpress is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. In this project, Express is used to create the backend API, handling HTTP requests and responses, and defining the routes and endpoints for user management and authentication.
+`Express`: Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. In this project, Express is used to create the backend API, handling HTTP requests and responses, and defining the routes and endpoints for user management and authentication.
