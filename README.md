@@ -79,7 +79,7 @@ docker-compose down && docker-compose up --build -d
 
 -   Describe the roles of `docker`, `postgres`, `prisma` and `express` for the project.
 
-`Docker`: Docker is used to containerize the application, which makes it easy to manage dependencies and run services like the database and the backend server in isolated environments. This simplifies deployment and ensures consistent behavior across different environments.Docker is used to containerize the services, allowing for easy management, deployment, and isolation of the application's components. In this project, Docker is used to run the PostgreSQL database and the Node.js backend in separate containers, ensuring that they have the necessary dependencies and can be easily started, stopped, and updated.
+`Docker`: Docker is used to containerize the application, which makes it easy to manage dependencies and run services like the database and the backend server in isolated environments.In this project, Docker is used to run the PostgreSQL database and the Node.js backend in separate containers, ensuring that they have the necessary dependencies and can be easily started, stopped, and updated.
 
 `Postgres`: PostgreSQL is a powerful, open-source object-relational database system that is used in this project to store user and company data. It  runs within a Docker container, and the connection to the database is managed using environment variables
 
