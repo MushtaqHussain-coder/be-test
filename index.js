@@ -58,9 +58,25 @@ app.get('/users', authenticate, async (_, res) => {
     }
 });
 
-// Invalidate JWT
+// Invalidate JWT for a user with valid jwt token
 app.post('/users/invalidateToken/:id', authenticate, async (req, res) => {
     // TODO: Implement
+    if (req.params?.id != req.userId) {
+        res.status(405).json({ message: 'Operation not permitted!' })
+        return;
+    }
+
+    try {
+        const result = await prisma.user.update({
+            where: { id: req.userId },
+            data: { jwt: null }
+        });
+
+        res.json({ success: true });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Failed to invalidate user.' });
+    }
 });
 
 app.listen(3000, () => {
