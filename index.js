@@ -51,7 +51,10 @@ app.post('/users/login/:id', async (req, res) => {
 app.get('/users', authenticate, async (_, res) => {
     try {
         let allUsers = await prisma.user.findMany({
-            include: {
+            select: {
+                id: true,
+                name: true,
+                email: true,
                 companies: {
                     select: {
                         company: true
