@@ -50,7 +50,22 @@ app.post('/users/login/:id', async (req, res) => {
 // Gets all users
 app.get('/users', authenticate, async (_, res) => {
     try {
-        const allUsers = await prisma.user.findMany();
+        let allUsers = await prisma.user.findMany({
+            include: {
+                companies: {
+                    select: {
+                        company: true
+                    }
+                }
+            },
+        });
+
+        // Restructure
+        allUsers = allUsers.map(user => ({
+            ...user,
+            companies: user.companies.map(company => company.company),
+
+        }));
         res.json(allUsers);
     } catch (error) {
         console.error(error);
